@@ -1,5 +1,4 @@
 import React, { useReducer } from 'react';
-import { BiPlus } from "react-icons/bi"; 
 
 
 
@@ -44,7 +43,7 @@ function EmpForm() {
         <label htmlFor='radioDefault2' className='inline-block text-gray-800'>Inactive</label>
     </div>
     </div>
-    <button className='flex justify-center text-md w-2/6 bg-green-500 text-white px-4 py-2 border rounded-md hover:bg-gray-100 hover:border-green-500 hover:text-green-500'>Add <span><BiPlus size={23}/></span></button>
+    <button className='flex justify-center text-md w-2/6 bg-green-500 text-white px-4 py-2 border rounded-md hover:bg-gray-100 hover:border-green-500 hover:text-green-500'>Add +</button>
    </form> 
   )
 }

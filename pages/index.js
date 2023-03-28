@@ -5,7 +5,7 @@ import data from '../database/data.json';
 // import { BiUserPlus } from "react-icons/bi";
 import EmpForm from '../components/EmpForm';
 import { useState } from 'react';
-import Table from '../components/table';
+import Table from '../components/Table';
 
 export default function Home() {
   const [visible,setVisible] = useState(false);

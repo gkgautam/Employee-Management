@@ -1,5 +1,5 @@
 import React, { useReducer } from 'react';
-import Succes from './succes';
+import Succes from './Succes';
 import Error from './Error';
 
 

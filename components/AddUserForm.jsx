@@ -3,6 +3,11 @@
     import Error from './Error';
 
 
+    // export async function getServerSideProps() {
+    //     return{
+    //         props:{}
+    //     } 
+    // }
 
     function AddUserForm() {
 
@@ -12,11 +17,25 @@
             [e.target.name]:e.target.value
             }
         }
-        const handleSubmit = (e)=>{
+        const handleSubmit = async (e)=>{
             e.preventDefault();
+            alert('you really want to add user?');
             if(Object.keys(formData).length==0)
             {
                 console.log('No data!');
+                return;
+            }
+            const user = await fetch(`http://localhost:3000/api/users`,
+            {
+                method:'POST',
+                headers:{
+                    'Accept':'application/json',
+                    'Content-type':'application/json'
+                },
+                body:JSON.stringify(formData)
+            });
+            if(user){
+                alert('user added successfully!');
             }
             // if(Object.keys(formData).length>0){
             //    return( <Succes message={'your data saved.'}/>)
@@ -25,10 +44,10 @@
 
         const [formData,setFormData] = useReducer(formReducer,{});
     return (
-        Object.keys(formData).length>0 ? <>
-        {/* <Error message={'Something Wrong!'}/> */}
-            <Succes message={'your data saved.'}/>
-        </> :
+        // Object.keys(formData).length>0 ? <>
+        // {/* <Error message={'Something Wrong!'}/> */}
+        //     <Succes message={'your data saved.'}/>
+        // </> :
     <>
         <form onSubmit={handleSubmit} method='post' className='grid lg:grid-cols-2 w-2/3 gap-4'>
         <div className='input-field py-1 pt-2'>

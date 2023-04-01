@@ -1,13 +1,21 @@
 import Head from 'next/head'
 import Image from 'next/image'
 import styles from '../styles/Home.module.css'
-import data from '../database/data.json';
+// import data from '../database/data.json';
 // import { BiUserPlus } from "react-icons/bi";
 import EmpForm from '../components/EmpForm';
 import { useState } from 'react';
 import Table from '../components/Table';
 
-export default function Home() {
+export async function getServerSideProps(){
+    const data = await fetch(`http://localhost:3000/api/users`);
+    const users = await data.json();
+    return {
+      props:{users}
+    }
+}
+
+export default function Home({users}) {
   const [visible,setVisible] = useState(false);
   const handler = ()=>{
     setVisible(!visible);
@@ -38,7 +46,7 @@ export default function Home() {
         }
         </div> 
         <div className='table-section container'>
-        <Table data = {data}/>
+        <Table data = {users}/>
         </div> 
       </main>
 

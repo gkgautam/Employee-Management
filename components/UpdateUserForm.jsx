@@ -25,10 +25,10 @@
 
         const [formData,setFormData] = useReducer(formReducer,{});
     return (
-        Object.keys(formData).length>0 ? <>
-        {/* <Error message={'Something Wrong!'}/> */}
-            <Succes message={'your data saved.'}/>
-        </> :
+        // Object.keys(formData).length>0 ? <>
+        // {/* <Error message={'Something Wrong!'}/> */}
+        //     <Succes message={'your data saved.'}/>
+        // </> :
     <>
         <form onSubmit={handleSubmit} method='post' className='grid lg:grid-cols-2 w-2/3 gap-4'>
         <div className='input-field py-1 pt-2'>

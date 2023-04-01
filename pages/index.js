@@ -8,8 +8,7 @@ import { useState } from 'react';
 import Table from '../components/Table';
 
 export async function getServerSideProps(){
-    const data = await fetch(`http://localhost:3000/api/users`);
-    (`${process.env.NODE_ENV=="production"?"https://gkemployee-management.vercel.app/api/users":"http://localhost:3000/api/users"}`)
+    const data = await fetch(`${process.env.NODE_ENV=="production"?"https://gkemployee-management.vercel.app/api/users":"http://localhost:3000/api/users"}`);
     const users = await data.json();
     return {
       props:{users}
